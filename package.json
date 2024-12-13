@@ -16,7 +16,7 @@
     "lint": "eslint .",
     "typecheck": "tsc",
     "format": "prettier --write .",
-    "validate": "npm run lint && npm run typecheck",
+    "validate": "pnpm run lint && pnpm run typecheck",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "stripe:listen": "stripe listen --forward-to localhost:3000/api/webhook"
