@@ -6,13 +6,13 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = env("DATABASE_PROVIDER")
   url      = env("DATABASE_URL")
 }
 
-// · · · · · · · · · · · · · · · · · · · · 
+// · · · · · · · · · · · · · · · · · · · ·
 // User Models
-// · · · · · · · · · · · · · · · · · · · · 
+// · · · · · · · · · · · · · · · · · · · ·
 
 model User {
   id           String        @id @default(cuid())
@@ -40,10 +40,10 @@ model UserImage {
   updatedAt DateTime @updatedAt
 }
 
-// · · · · · · · · · · · · · · · · · · · · 
+// · · · · · · · · · · · · · · · · · · · ·
 // Role-Based Access Models
 // Implementation based on github.com/epicweb-dev/epic-stack
-// · · · · · · · · · · · · · · · · · · · · 
+// · · · · · · · · · · · · · · · · · · · ·
 
 model Role {
   id          String       @id @default(cuid())
@@ -70,9 +70,9 @@ model Permission {
   @@unique([action, entity, access])
 }
 
-// · · · · · · · · · · · · · · · · · · · · 
+// · · · · · · · · · · · · · · · · · · · ·
 // Subscription Models
-// · · · · · · · · · · · · · · · · · · · · 
+// · · · · · · · · · · · · · · · · · · · ·
 
 model Plan {
   id            String         @id @unique
